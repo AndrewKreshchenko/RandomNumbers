@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: goldenrod;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #777;
+  text-align: center;
+}
+
+button {
+  width: 150px;
+  height: 45px;
+  border: 2px solid #777;
+
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 24px;
+  background-color: #fc3;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: firebrick;
+  color: #fc3;
+}
+
+button::after {
+  border: none;
+}
+
+#lines{
+  display: block;
+  margin: 10px auto;
+  width: 85%;
+
+  padding: 20px 10px;
+  border-top: 4px solid #777;
+  background-color: #ccc;
+  color: #000;
+  font-size: 14px;
+  text-align: left;
+  line-height: 25px;
+}
+
+.head_txt{
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 2em;
+  color: #fc3;
+  background-color: firebrick;
+}
+.rule {
+  border: none;
+  height: 1.5px;
+  background-color: #fff;
+}
+
+/* Select Box */
+.sel {
+  margin: 20px 0;
+  width: 150px;
+  font-size: 20px;
+  text-align: center;
+  display: inline-block;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.sel::before {
+  position: absolute;
+  
+  color: #fff;
+  right: 20px;
+  top: calc(50% - 0.5em);
+}
+
+.sel__placeholder {
+  display: block;
+  color: #fff;
+  padding: 0.2em 0.5em;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  visibility: visible;
+}
+
+.sel.active .sel__placeholder {
+  visibility: hidden;
+}
+
+.sel__placeholder::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.2em 0.5em;
+  content: attr(data-placeholder);
+  visibility: hidden;
+}
+
+.sel.active .sel__placeholder::before {
+  visibility: visible;
+}
+
+.sel__box {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: -4px;
+  display: none;
+  list-style-type: none;
+  background-color: #fff;
+  width: calc(100% + 8px);
+  box-sizing: border-box;
+}
+
+.sel.active .sel__box {
+  display: block;
+  -webkit-animation: fadeInUp 500ms;
+          animation: fadeInUp 500ms;
+}
+
+.sel__box__options {
+  display: list-item;
+  padding: 0.5em 1em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.sel__box__options::after {
+  margin-left: 5px;
+  display: none;
+}
+
+.sel__box__options.selected::after {
+  display: inline;
+}
+
+.sel__box__options:hover {
+  background-color: #ebedef;
+}
+
+.sel, #lines {
+  border-bottom: 4px solid #777;
+}
+
+/* Keyframes */
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20px, 0);
+            transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20px, 0);
+            transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
