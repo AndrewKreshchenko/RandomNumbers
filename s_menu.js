@@ -1,3 +1,4 @@
+//var tx;
 /* ===== Logic for creating fake Select Boxes ===== */
 $('.sel').each(function() {
   $(this).children('select').css('display', 'none');
@@ -40,4 +41,6 @@ $('.sel__box__options').click(function() {
   var $currentSel = $(this).closest('.sel');
   $currentSel.children('.sel__placeholder').text(txt);
   $currentSel.children('select').prop('selectedIndex', index + 1);
+  //ind.prop('selectedIndex', index + 1);
+  tx = $(this).text();
 });
