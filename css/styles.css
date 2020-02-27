@@ -131,17 +131,22 @@ a:visited {
   display: none;
   position: absolute;
   top: 0;
+  left: 0;
+  width: 100%;
   padding-top: 0;
   height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .wrapper.body.showed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .wrapper.body img {

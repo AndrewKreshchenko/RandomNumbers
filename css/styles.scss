@@ -125,11 +125,14 @@ $sel: 'selection';
     display: none;
     position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
     padding-top: 0;
     height: 100%;
+    align-items: center;
+    justify-content: center;
     &.showed {
       display: flex;
-      align-items: center;
     }
     img {
       max-height: 100vh;
