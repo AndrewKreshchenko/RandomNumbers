@@ -152,6 +152,8 @@ a:visited {
 .wrapper.body img {
   max-height: 100vh;
   max-width: 100%;
+  -webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (min-width: 768px) {
