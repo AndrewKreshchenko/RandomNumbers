@@ -1,0 +1,164 @@
+// ----
+// Sass (v3.3.14)
+// Compass or https://www.sassmeister.com
+// ----
+
+/* ANIMATIONS */
+// Add vendor prefixes to keyframes
+@mixin keyframe ($animation-name) {
+  @-moz-keyframes #{$animation-name} {
+    @content
+  }
+  @-o-keyframes #{$animation-name} {
+    @content
+  }
+  @-webkit-keyframes #{$animation-name} {
+    @content
+  }
+  @keyframes #{$animation-name} {
+    @content
+  }
+}
+
+@mixin animation($animation, $duration, $transition) {
+  -webkit-animation-name: $animation;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-timing-function: $transition;
+  animation-name: $animation;
+  animation-duration: $duration;
+  animation-timing-function: $transition
+}
+
+/* Mixin to prefix properties */
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+
+/* Text Animation */
+// Define variables
+// $anim_items: 5; // number of DOM elements to animate
+// $anim_time: 1.4s; // first number of animation time
+// $koef_time: 0; // koeficient to iterate the number of animation time
+// $anim_extend: 260; // 360 // first fading number
+// $koef_extend: 200; // 180 // koeficient to iterate the number of fadings
+
+/* Keyframe for box-main animation */
+@include keyframe (pre_smooth) {
+  0% {
+    box-shadow: none;
+    background-color: #215b80
+  }
+  to {
+    background-color: #cae2f1;
+    box-shadow: inset 0px 0px 90px #215b80
+  }
+}
+@include keyframe(stroke_add) {
+  0% {stroke-dashoffset: 1000;}
+  to {stroke-dashoffset: 0;}
+}
+@include keyframe(stroke_rem) {
+  0% {stroke-dashoffset: 0;}
+  to {stroke-dashoffset: 1000;}
+}
+
+// General
+body {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  font-weight: 400;
+  font-size: 18px;
+  overflow: hidden
+}
+p, a, button, li, label, code, pre, h1, h2, h3 {
+  font-family: 'Caveat', cursive;
+}
+a {
+  text-decoration-style: dotted;
+  color: #2f83b6;
+  -webkit-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  transition: color 0.5s;
+  &:hover, &:focus, &:active, &:after {
+    color: #215b80 !important
+  }
+  &:visited {
+    color: #215b80
+  }
+}
+
+$sel: 'selection';
+::-moz-#{$sel} {background: rgba(33, 91, 128, .2)}
+::#{$sel} {background: rgba(33, 91, 128, .2)}
+
+// Page
+#heading {
+  &-path {
+    stroke-width: 2px;
+    stroke: #ff1a1a;
+  }
+  &-txt {
+    &-path {
+      --color-stop-1: rgb(205,210,57);
+      --color-stop-2: rgb(140,195,74);
+      --color-stop-3: rgba(255,102,102,.75);
+    }
+    &-h-left {
+      --color-stop-1: #ff6666;
+      --color-stop-2: #ff1a1a;
+    }
+    &-h-left {
+      --color-stop-1: #ff6873;
+      --color-stop-2: #ff3341;
+    }
+  }
+}
+.wrapper {
+  padding-top: 50px;
+  text-align: center;
+  &.body {
+    display: none;
+    position: absolute;
+    top: 0;
+    padding-top: 0;
+    height: 100%;
+    &.showed {
+      display: flex;
+      align-items: center;
+    }
+    img {
+      max-height: 100vh;
+      max-width: 100%;
+      @media screen and (min-width: 768px) {
+        max-height: 75vh;
+      }
+    }
+  }
+}
+
+.congrat-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #cae2f1;
+  box-shadow: inset 0px 0px 90px #215b80;
+  @include animation(pre_smooth, 1s, linear)
+}
+#heading-path, #w-ring-path.showed {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  @include animation(stroke_add, 5s, linear)
+}
+#heading-path.stroke-remove {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  @include animation(stroke_rem, 4s, linear)
+}

@@ -1,0 +1,206 @@
+/* ANIMATIONS */
+/* Mixin to prefix properties */
+/* Text Animation */
+/* Keyframe for box-main animation */
+
+@-webkit-keyframes pre_smooth {
+  0% {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background-color: #215b80;
+  }
+  to {
+    background-color: #cae2f1;
+    -webkit-box-shadow: inset 0px 0px 90px #215b80;
+            box-shadow: inset 0px 0px 90px #215b80;
+  }
+}
+
+@keyframes pre_smooth {
+  0% {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background-color: #215b80;
+  }
+  to {
+    background-color: #cae2f1;
+    -webkit-box-shadow: inset 0px 0px 90px #215b80;
+            box-shadow: inset 0px 0px 90px #215b80;
+  }
+}
+
+@-webkit-keyframes stroke_add {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes stroke_add {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes stroke_rem {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+@keyframes stroke_rem {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  font-weight: 400;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+p, a, button, li, label, code, pre, h1, h2, h3 {
+  font-family: 'Caveat', cursive;
+}
+
+a {
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
+  color: #2f83b6;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
+a:hover, a:focus, a:active, a:after {
+  color: #215b80 !important;
+}
+
+a:visited {
+  color: #215b80;
+}
+
+::-moz-selection {
+  background: rgba(33, 91, 128, 0.2);
+}
+
+::selection {
+  background: rgba(33, 91, 128, 0.2);
+}
+
+#heading-path {
+  stroke-width: 2px;
+  stroke: #ff1a1a;
+}
+
+#heading-txt-path {
+  --color-stop-1: rgb(205,210,57);
+  --color-stop-2: rgb(140,195,74);
+  --color-stop-3: rgba(255,102,102,.75);
+}
+
+#heading-txt-h-left {
+  --color-stop-1: #ff6666;
+  --color-stop-2: #ff1a1a;
+}
+
+#heading-txt-h-left {
+  --color-stop-1: #ff6873;
+  --color-stop-2: #ff3341;
+}
+
+.wrapper {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.wrapper.body {
+  display: none;
+  position: absolute;
+  top: 0;
+  padding-top: 0;
+  height: 100%;
+}
+
+.wrapper.body.showed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper.body img {
+  max-height: 100vh;
+  max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper.body img {
+    max-height: 75vh;
+  }
+}
+
+.congrat-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #cae2f1;
+  -webkit-box-shadow: inset 0px 0px 90px #215b80;
+          box-shadow: inset 0px 0px 90px #215b80;
+  -webkit-animation-name: pre_smooth;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-name: pre_smooth;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+#heading-path, #w-ring-path.showed {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  -webkit-animation-name: stroke_add;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-timing-function: linear;
+  animation-name: stroke_add;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+}
+
+#heading-path.stroke-remove {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  -webkit-animation-name: stroke_rem;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-timing-function: linear;
+  animation-name: stroke_rem;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+}
+/*# sourceMappingURL=styles.css.map */
